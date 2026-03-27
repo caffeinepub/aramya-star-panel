@@ -1,0 +1,145 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "Plus Jakarta Sans";
+  src: url("/assets/fonts/PlusJakartaSans.woff2") format("woff2");
+  font-weight: 300 700;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Playfair Display";
+  src: url("/assets/fonts/PlayfairDisplay.woff2") format("woff2");
+  font-weight: 400 800;
+  font-display: swap;
+}
+
+@layer base {
+  :root {
+    --radius: 0.75rem;
+    --background: 0.925 0.031 83;
+    --foreground: 0.175 0 0;
+    --card: 0.945 0.028 88;
+    --card-foreground: 0.175 0 0;
+    --popover: 0.945 0.028 88;
+    --popover-foreground: 0.175 0 0;
+    --primary: 0.7 0.118 75;
+    --primary-foreground: 0.985 0 0;
+    --secondary: 0.838 0.035 86;
+    --secondary-foreground: 0.175 0 0;
+    --muted: 0.905 0.04 84;
+    --muted-foreground: 0.393 0 0;
+    --accent: 0.622 0.125 74;
+    --accent-foreground: 0.985 0 0;
+    --destructive: 0.577 0.245 27.325;
+    --destructive-foreground: 0.985 0 0;
+    --border: 0.838 0.035 86;
+    --input: 0.838 0.035 86;
+    --ring: 0.7 0.118 75;
+    --chart-1: 0.7 0.118 75;
+    --chart-2: 0.281 0.063 225;
+    --chart-3: 0.393 0 0;
+    --chart-4: 0.828 0.189 84.429;
+    --chart-5: 0.769 0.188 70.08;
+    --sidebar: 0.945 0.028 88;
+    --sidebar-foreground: 0.175 0 0;
+    --sidebar-primary: 0.7 0.118 75;
+    --sidebar-primary-foreground: 0.985 0 0;
+    --sidebar-accent: 0.838 0.035 86;
+    --sidebar-accent-foreground: 0.175 0 0;
+    --sidebar-border: 0.838 0.035 86;
+    --sidebar-ring: 0.7 0.118 75;
+
+    /* Aramya brand tokens */
+    --aramya-cream: #f4ead2;
+    --aramya-cream-alt: #f7f0da;
+    --aramya-cream-dark: #efe2c1;
+    --aramya-divider: #d8cdb2;
+    --aramya-gold: #c9a24a;
+    --aramya-gold-dark: #b78c33;
+    --aramya-teal: #1e3a4a;
+    --aramya-text: #1a1a1a;
+    --aramya-text-secondary: #4f4f4f;
+  }
+
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: "Plus Jakarta Sans", "General Sans", system-ui, sans-serif;
+  }
+}
+
+/* Aramya custom animations */
+@keyframes swipe-right {
+  to {
+    transform: translateX(120%) rotate(15deg);
+    opacity: 0;
+  }
+}
+
+@keyframes swipe-left {
+  to {
+    transform: translateX(-120%) rotate(-15deg);
+    opacity: 0;
+  }
+}
+
+@keyframes card-enter {
+  from {
+    transform: scale(0.9) translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1) translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes feedback-pop {
+  0% {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes coin-bounce {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.15);
+  }
+}
+
+.card-swipe-right {
+  animation: swipe-right 0.4s ease-out forwards;
+}
+
+.card-swipe-left {
+  animation: swipe-left 0.4s ease-out forwards;
+}
+
+.card-enter {
+  animation: card-enter 0.35s ease-out forwards;
+}
+
+.feedback-pop {
+  animation: feedback-pop 0.3s ease-out forwards;
+}
+
+.coin-bounce {
+  animation: coin-bounce 0.4s ease-out;
+}
